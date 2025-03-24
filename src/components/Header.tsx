@@ -22,9 +22,9 @@ const Header = () => {
           {/* Logo */}
           <Link href="/" className="flex items-center">
             <Image
-              src="/images/logo/big-logo.png"
+              src="/images/logo/X-Uni-primary-horizontal-logo.png"
               alt="Logo"
-              width={40}
+              width={100}
               height={40}
               className="mr-2"
             />
@@ -81,9 +81,9 @@ const Header = () => {
               <div className="flex items-center justify-between p-4 border-b bg-gray-50">
                 <Link href="/" className="flex items-center">
                   <Image
-                    src="/images/logo/big-logo.png"
+                    src="/images/logo/X-Uni-primary-horizontal-logo.png"
                     alt="Logo"
-                    width={40}
+                    width={100}
                     height={40}
                     className="mr-2"
                   />

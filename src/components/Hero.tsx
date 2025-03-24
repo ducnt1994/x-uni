@@ -11,7 +11,7 @@ const Hero = () => {
 
   return (
     <section 
-      className="pt-24 pb-12 bg-gradient-to-br from-blue-600/5 via-white to-blue-50"
+      className="pt-24 pb-12 bg-gradient-to-br from-blue-50 via-white to-blue-50"
       ref={sectionRef}
     >
       <div className="container mx-auto px-4">
