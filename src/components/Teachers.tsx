@@ -1,4 +1,6 @@
+'use client'
 import Image from 'next/image'
+import { useOnceInView } from '@/hooks/useOnceInView'
 
 const teachers = [
   {
@@ -56,10 +58,15 @@ const teachers = [
 ]
 
 const Teachers = () => {
+  const [sectionRef, isSectionInView] = useOnceInView({ threshold: 0.1 })
+
   return (
     <section id="teachers" className="py-20 bg-gray-50">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-16">
+        <div 
+          ref={sectionRef}
+          className={`text-center mb-16 transition-all duration-1000 transform ${isSectionInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
+        >
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
             Đội ngũ giảng viên
           </h2>
@@ -69,8 +76,16 @@ const Teachers = () => {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {teachers.map((teacher) => (
-            <div key={teacher.id} className="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
+          {teachers.map((teacher, index) => (
+            <div 
+              key={teacher.id}
+              className={`bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-1000 transform ${
+                isSectionInView 
+                  ? 'opacity-100 translate-y-0' 
+                  : 'opacity-0 translate-y-8'
+              }`}
+              style={{ transitionDelay: `${index * 200}ms` }}
+            >
               <div className="relative h-64">
                 <Image
                   src={teacher.image}

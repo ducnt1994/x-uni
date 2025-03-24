@@ -3,15 +3,20 @@ import Image from 'next/image'
 import { UserGroupIcon, AcademicCapIcon, UserIcon, StarIcon } from '@heroicons/react/24/outline'
 import { useState } from 'react'
 import RegisterDialog from './RegisterDialog'
+import { useInView } from '@/hooks/useInView'
 
 const Hero = () => {
   const [isDialogOpen, setIsDialogOpen] = useState(false)
+  const [sectionRef, isSectionInView] = useInView({ threshold: 0.1 })
 
   return (
-    <section className="pt-24 pb-12 bg-gradient-to-br from-blue-600/5 via-white to-blue-50">
+    <section 
+      className="pt-24 pb-12 bg-gradient-to-br from-blue-600/5 via-white to-blue-50"
+      ref={sectionRef}
+    >
       <div className="container mx-auto px-4">
         <div className="flex flex-col md:flex-row items-center justify-between gap-12">
-          <div className="flex-1 text-center md:text-left">
+          <div className={`flex-1 text-center md:text-left transition-all duration-1000 transform ${isSectionInView ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-8'}`}>
             <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
               Khám phá kiến thức mới cùng các chuyên gia hàng đầu
             </h1>
@@ -33,7 +38,7 @@ const Hero = () => {
               </button>
             </div>
           </div>
-          <div className="flex-1 relative">
+          <div className={`flex-1 relative transition-all duration-1000 transform ${isSectionInView ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-8'}`}>
             <div className="w-full h-[400px] relative">
               <Image
                 src="/images/banner/banner-1.webp"
@@ -49,7 +54,7 @@ const Hero = () => {
           </div>
         </div>
         
-        <div className="mt-20 grid grid-cols-2 md:grid-cols-4 gap-8">
+        <div className={`mt-20 grid grid-cols-2 md:grid-cols-4 gap-8 transition-all duration-1000 transform ${isSectionInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
           <div className="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-all">
             <div className="flex items-center justify-center mb-4">
               <div className="w-16 h-16 bg-uni-orange-100 rounded-full flex items-center justify-center">

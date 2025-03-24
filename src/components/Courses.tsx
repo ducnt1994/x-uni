@@ -3,6 +3,7 @@ import Image from 'next/image'
 import { ClockIcon, AcademicCapIcon } from '@heroicons/react/24/outline'
 import { useState } from 'react'
 import RegisterDialog from './RegisterDialog'
+import { useInView } from '@/hooks/useInView'
 
 const courses = [
   {
@@ -46,6 +47,7 @@ const courses = [
 const Courses = () => {
   const [isDialogOpen, setIsDialogOpen] = useState(false)
   const [selectedCourse, setSelectedCourse] = useState('')
+  const [sectionRef, isSectionInView] = useInView({ threshold: 0.1 })
 
   const handleRegister = (courseTitle: string) => {
     setSelectedCourse(courseTitle)
@@ -53,9 +55,13 @@ const Courses = () => {
   }
 
   return (
-    <section id="courses" className="py-20 bg-gray-50">
+    <section 
+      id="courses" 
+      className="py-20 bg-gray-50"
+      ref={sectionRef}
+    >
       <div className="container mx-auto px-4">
-        <div className="text-center mb-16">
+        <div className={`text-center mb-16 transition-all duration-1000 transform ${isSectionInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
             Các khóa học nổi bật
           </h2>
@@ -65,8 +71,16 @@ const Courses = () => {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
-          {courses.map((course) => (
-            <div key={course.id} className="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
+          {courses.map((course, index) => (
+            <div 
+              key={course.id} 
+              className={`bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-1000 transform ${
+                isSectionInView 
+                  ? 'opacity-100 translate-y-0' 
+                  : 'opacity-0 translate-y-8'
+              }`}
+              style={{ transitionDelay: `${index * 200}ms` }}
+            >
               <div className="relative h-48">
                 <Image
                   src={course.image}
