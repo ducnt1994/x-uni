@@ -17,7 +17,7 @@ const Hero = () => {
       <div className="container mx-auto px-4">
         <div className="flex flex-col md:flex-row items-center justify-between gap-12">
           <div className={`flex-1 text-center md:text-left transition-all duration-1000 transform ${isSectionInView ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-8'}`}>
-            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+            <h1 className="text-4xl md:text-5xl font-bold text-uni-red mb-6">
               Khám phá kiến thức mới cùng các chuyên gia hàng đầu
             </h1>
             <p className="text-lg text-gray-600 mb-8">
@@ -26,7 +26,7 @@ const Hero = () => {
             <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
               <button 
                 onClick={() => setIsDialogOpen(true)}
-                className="px-8 py-3 bg-uni-orange-500 text-white rounded-full text-lg font-semibold hover:bg-uni-orange-600 transition-colors cursor-pointer"
+                className="px-8 py-3 bg-gradient-to-br from-uni-red to-uni-orange-500 text-white rounded-full text-lg font-semibold hover:bg-uni-orange-600 transition-colors cursor-pointer"
               >
                 Đăng ký ngay
               </button>
@@ -54,7 +54,7 @@ const Hero = () => {
           </div>
         </div>
         
-        <div className={`mt-20 grid grid-cols-2 md:grid-cols-4 gap-8 transition-all duration-1000 transform ${isSectionInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
+        {/* <div className={`mt-20 grid grid-cols-2 md:grid-cols-4 gap-8 transition-all duration-1000 transform ${isSectionInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
           <div className="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-all">
             <div className="flex items-center justify-center mb-4">
               <div className="w-16 h-16 bg-uni-orange-100 rounded-full flex items-center justify-center">
@@ -102,7 +102,7 @@ const Hero = () => {
               <p className="text-gray-600">Đánh giá tích cực</p>
             </div>
           </div>
-        </div>
+        </div> */}
 
         <RegisterDialog
           isOpen={isDialogOpen}

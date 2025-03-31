@@ -28,7 +28,9 @@ const config: Config = {
           700: '#B8610B',
           800: '#904807',
           900: '#683403'
-        }
+        },
+        'uni-red' : "#EC1C24",
+        'uni-gradient' : "linear-gradient(to right, #EC1C24, #F8981D)"
       }
     },
   },

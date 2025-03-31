@@ -62,7 +62,7 @@ const Courses = () => {
     >
       <div className="container mx-auto px-4">
         <div className={`text-center mb-16 transition-all duration-1000 transform ${isSectionInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-uni-red mb-4">
             Các khóa học nổi bật
           </h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
@@ -90,7 +90,7 @@ const Courses = () => {
                 />
               </div>
               <div className="p-6">
-                <h3 className="text-xl font-bold text-gray-900 mb-2">
+                <h3 className="text-xl font-bold text-uni-red mb-2">
                   {course.title}
                 </h3>
                 <p className="text-gray-600 mb-4">
@@ -112,7 +112,7 @@ const Courses = () => {
                   </span>
                   <button 
                     onClick={() => handleRegister(course.title)}
-                    className="px-6 py-2 bg-uni-orange-500 text-white rounded-lg hover:bg-uni-orange-600 transition-colors cursor-pointer"
+                    className="px-6 py-2 bg-gradient-to-r from-uni-red to-uni-orange-500 text-white rounded-lg hover:bg-uni-orange-600 transition-colors cursor-pointer"
                   >
                     Đăng ký ngay
                   </button>

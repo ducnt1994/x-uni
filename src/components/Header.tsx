@@ -16,7 +16,7 @@ const Header = () => {
   }
 
   return (
-    <header className="fixed top-0 left-0 right-0 bg-white/80 backdrop-blur-md z-50 shadow-sm">
+    <header className="fixed top-0 left-0 right-0 bg-uni-red backdrop-blur-md z-50 shadow-sm">
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
@@ -46,25 +46,25 @@ const Header = () => {
           <nav className="hidden lg:flex items-center space-x-8">
             <button
               onClick={() => scrollToSection('courses')}
-              className="text-gray-600 hover:text-uni-orange-500 transition-colors"
+              className="text-white hover:text-uni-orange-500 transition-colors"
             >
               Khóa học
             </button>
             <button
               onClick={() => scrollToSection('testimonials')}
-              className="text-gray-600 hover:text-uni-orange-500 transition-colors"
+              className="text-white hover:text-uni-orange-500 transition-colors"
             >
               Đánh giá
             </button>
             <button
               onClick={() => scrollToSection('teachers')}
-              className="text-gray-600 hover:text-uni-orange-500 transition-colors"
+              className="text-white hover:text-uni-orange-500 transition-colors"
             >
               Giảng viên
             </button>
             <button
               onClick={() => scrollToSection('contact')}
-              className="text-gray-600 hover:text-uni-orange-500 transition-colors"
+              className="text-white hover:text-uni-orange-500 transition-colors"
             >
               Liên hệ
             </button>

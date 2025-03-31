@@ -29,7 +29,7 @@ const Testimonials = () => {
     <section id="testimonials" className="py-20 bg-gradient-to-br from-blue-50 via-white to-blue-50">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-uni-red mb-4">
             Học viên nói gì về chúng tôi
           </h2>
           <div className="flex items-center justify-center gap-2 mb-6">
@@ -67,8 +67,8 @@ const Testimonials = () => {
                   />
                 </div>
                 <div>
-                  <h4 className="font-semibold text-gray-900">{testimonial.name}</h4>
-                  <p className="text-sm text-uni-orange-500">{testimonial.role}</p>
+                  <h4 className="font-semibold text-uni-red">{testimonial.name}</h4>
+                  <p className="text-sm text-uni-red">{testimonial.role}</p>
                 </div>
               </div>
               <div className="absolute bottom-4 right-8">
