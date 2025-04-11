@@ -31,11 +31,71 @@ const RegisterDialog = ({ isOpen, onClose, title = 'Đăng ký tư vấn', selec
     course: selectedCourse
   })
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    console.log('Form submitted:', formData)
-    onClose()
-    setFormData(initialFormData)
+    const data = {
+      "text": "New Paid Time Off request from Fred Enriquez",
+      "blocks": [
+        {
+          "type": "header",
+          "text": {
+            "type": "plain_text",
+            "text": "Người đăng ký mới",
+            "emoji": true
+          }
+        },
+        {
+          "type": "section",
+          "fields": [
+            {
+              "type": "mrkdwn",
+              "text": `*Tên:*\n${formData.name}`
+            },
+            {
+              "type": "mrkdwn",
+              "text": `*Email:*\n${formData.email}`
+            }
+          ]
+        },
+        {
+          "type": "section",
+          "fields": [
+            {
+              "type": "mrkdwn",
+              "text": `*SDT:*\n${formData.phone}`
+            },
+            {
+              "type": "mrkdwn",
+              "text": `*Khoá học đăng ký:*\n${formData.course}`
+            }
+          ]
+        },
+        {
+          "type": "section",
+          "fields": [
+            {
+              "type": "mrkdwn",
+              "text": `*Note:*\n${formData.message}`
+            }
+          ]
+        }
+      ]
+    }
+    // fetch to slack
+    try {
+      await fetch(process.env.NEXT_PUBLIC_SLACK_WEBHOOK_URL as string, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+      })
+      onClose()
+      setFormData(initialFormData)
+    } catch (e) {
+      console.error(e)
+      alert('Đã có lỗi xảy ra, vui lòng thử lại sau')
+    }
   }
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
@@ -113,10 +173,8 @@ const RegisterDialog = ({ isOpen, onClose, title = 'Đăng ký tư vấn', selec
             className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-uni-orange-500 focus:border-uni-orange-500"
           >
             <option value="">Chọn khóa học</option>
-            <option value="frontend">Lập trình Frontend</option>
-            <option value="backend">Lập trình Backend</option>
-            <option value="uiux">UI/UX Design</option>
-            <option value="mobile">Mobile Development</option>
+            <option value="basic">Lập trình cơ bản</option>
+            <option value="ios">Lập trình IOS</option>
           </select>
         </div>
 
@@ -125,6 +183,7 @@ const RegisterDialog = ({ isOpen, onClose, title = 'Đăng ký tư vấn', selec
             Lời nhắn
           </label>
           <textarea
+            maxLength={500}
             id="message"
             name="message"
             value={formData.message}
@@ -133,6 +192,7 @@ const RegisterDialog = ({ isOpen, onClose, title = 'Đăng ký tư vấn', selec
             className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-uni-orange-500 focus:border-uni-orange-500"
             placeholder="Nhập lời nhắn của bạn (không bắt buộc)"
           />
+          <label className={`text-xs flex justify-end`}>{formData.message.length}/500</label>
         </div>
 
         <button
