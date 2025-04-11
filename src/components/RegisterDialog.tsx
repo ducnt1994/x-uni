@@ -85,9 +85,6 @@ const RegisterDialog = ({ isOpen, onClose, title = 'Đăng ký tư vấn', selec
     try {
       await fetch(process.env.NEXT_PUBLIC_SLACK_WEBHOOK_URL as string, {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
         body: JSON.stringify(data)
       })
       onClose()
