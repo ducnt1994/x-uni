@@ -8,7 +8,7 @@ import { useInView } from '@/hooks/useInView'
 const courses = [
   {
     id: 1,
-    title: 'Lập trình Web Frontend',
+    title: 'Lập trình cơ bản',
     description: 'Học cách xây dựng giao diện web modern với HTML, CSS, JavaScript và React',
     duration: '3 tháng',
     level: 'Cơ bản đến nâng cao',
@@ -63,10 +63,10 @@ const Courses = () => {
       <div className="container mx-auto px-4">
         <div className={`text-center mb-16 transition-all duration-1000 transform ${isSectionInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
           <h2 className="text-3xl md:text-4xl font-bold text-uni-red mb-4">
-            Các khóa học nổi bật
+            Các khóa học tại X-Uni
           </h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            Khám phá các khóa học chất lượng cao với nội dung được cập nhật liên tục
+            Các khóa học được thiết kế để giúp bạn có được tư duy lập trình cũng như kỹ năng trọng tâm để trở thành một lập trình viên chuyên nghiệp sớm nhất.
           </p>
         </div>
 

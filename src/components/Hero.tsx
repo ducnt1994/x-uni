@@ -40,13 +40,13 @@ const Hero = () => {
           </div>
           <div className={`flex-1 relative transition-all duration-1000 transform ${isSectionInView ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-8'}`}>
             <div className="w-full h-[400px] relative">
-              <Image
+              {/* <Image
                 src="/images/banner/banner-1.webp"
                 alt="Students learning"
                 fill
                 className="object-cover rounded-lg shadow-xl"
                 priority
-              />
+              /> */}
               {/* Decorative elements */}
               <div className="absolute -top-4 -left-4 w-24 h-24 bg-blue-50 rounded-full -z-10"></div>
               <div className="absolute -bottom-4 -right-4 w-32 h-32 bg-blue-100/50 rounded-full -z-10"></div>

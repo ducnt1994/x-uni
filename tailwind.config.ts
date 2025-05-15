@@ -18,18 +18,18 @@ const config: Config = {
         'dialog-fade-in': 'dialog-fade-in 0.3s ease-out'
       },
       colors: {
+        'uni-red' : "#EC1C24",
         'uni-orange': {
           100: '#FEF4E6',
           200: '#FCE4BF',
           300: '#FAD399',
           400: '#F9C273', 
-          500: '#F8981D', // Original color
-          600: '#E07C0F',
+          500: '#F8981D',
+          600: '#E07C0F', // Original color
           700: '#B8610B',
           800: '#904807',
           900: '#683403'
         },
-        'uni-red' : "#EC1C24",
         'uni-gradient' : "linear-gradient(to right, #EC1C24, #F8981D)"
       }
     },

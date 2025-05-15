@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import Logo from '/public/images/logo/logo.png'
+import LogoWhite from '/public/images/logo/logo-white.png'
 import Image from 'next/image'
 const Footer = () => {
   return (
@@ -7,8 +8,8 @@ const Footer = () => {
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
           <div>
-            <Image src={Logo} alt="Logo" width={40} height={40} />
-            <p className="text-white mb-6 mt-2">
+            <Image src={LogoWhite} alt="Logo" width={40} height={40} style={{filter: 'grayscale(100%)'}}/>
+            <p className="text-white mb-6 mt-4">
               Nơi kiến thức và đam mê hội tụ. Chúng tôi cam kết mang đến những khóa học chất lượng nhất cho học viên.
             </p>
             <div className="flex space-x-4">
