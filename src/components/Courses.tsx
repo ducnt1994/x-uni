@@ -13,6 +13,7 @@ const courses = [
     duration: '3 tháng',
     level: 'Cơ bản đến nâng cao',
     price: '6.900.000đ',
+    promotion: "12.000.000đ",
     image: '/images/course/course-1.webp'
   },
   {
@@ -22,6 +23,7 @@ const courses = [
     duration: '4 tháng',
     level: 'Trung cấp',
     price: '8.900.000đ',
+    promotion: "12.000.000đ",
     image: '/images/course/course-2.webp'
   },
   // {
@@ -107,9 +109,14 @@ const Courses = () => {
                   </div>
                 </div>
                 <div className="flex items-center justify-between">
-                  <span className="text-2xl font-bold text-uni-orange-500">
-                    {course.price}
-                  </span>
+                  <div className={'flex items-center gap-2'}>
+                    <span className="text-2xl font-bold text-uni-orange-500">
+                      {course.price}
+                    </span>
+                    <span className="text-sm text-gray-500 line-through">
+                      {course.promotion}
+                    </span>
+                  </div>
                   <button 
                     onClick={() => handleRegister(course.title)}
                     className="px-6 py-2 bg-gradient-to-r from-uni-red to-uni-orange-500 text-white rounded-lg hover:bg-uni-orange-600 transition-colors cursor-pointer"
